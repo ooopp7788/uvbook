@@ -152,6 +152,7 @@ void uv__run_timers(uv_loop_t* loop) {
   uv_timer_t* handle;
 
   for (;;) {
+    // 最小堆，只需要判断第一个节点
     heap_node = heap_min((struct heap*) &loop->timer_heap);
     if (heap_node == NULL)
       break;
